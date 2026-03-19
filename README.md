@@ -1,143 +1,92 @@
-# 🤖 AIToolsHub
+# 🤖 Rayix AI — AI Tools Directory
 
-A modern, full-featured AI tools directory website built with Next.js 14, React, and Tailwind CSS.
+A modern, full-featured AI tools directory built with Next.js 14, React, and Tailwind CSS.
 
 ---
 
 ## 🚀 Features
 
-- **75+ AI Tools Listed** — ChatGPT, Claude, Midjourney, Sora, Cursor, ElevenLabs, and every major AI tool
-- **Advanced Search & Filtering** — Search by name, description, or tag; filter by 17+ categories
-- **6 Working Free Tools** — Password Generator, QR Code Generator, Word Counter, Image Compressor, URL Shortener, Color Picker
-- **Blog Section** — AI news, comparisons, and guides
-- **Tutorials Page** — Step-by-step AI tool guides
+- **1000+ AI Tools Listed** — ChatGPT, Claude, Midjourney, Sora, Cursor, ElevenLabs, and every major AI tool
+- **Advanced Search & Filtering** — Search by name, description, or tag; filter by 34+ categories
+- **AI Prompt Maker** — 8 specialized builders for image, video, coding, audio & more
+- **AI Models Database** — Every major foundation model
+- **6 Free Browser Tools** — Password Generator, QR Code Generator, Word Counter, and more
+- **Blog & Tutorials** — AI news, comparisons, and step-by-step guides
 - **Fully Responsive** — Mobile, tablet, and desktop
-- **Modern Design** — Gradient hero, soft shadows, hover animations
+- **GDPR Compliant** — Cookie consent banner, privacy-first Analytics loading
 
 ---
 
 ## 📁 Project Structure
 
 ```
-aitoolshub/
+Rayix-AI/
 ├── components/
-│   ├── Layout.js         # Page wrapper with head/meta
-│   ├── Navbar.js         # Responsive navigation
-│   ├── Footer.js         # Footer with newsletter
-│   └── ToolCard.js       # Reusable AI tool card
+│   ├── Layout.js           # Page wrapper with SEO meta
+│   ├── Navbar.js           # Responsive navigation
+│   ├── Footer.js           # Footer with live newsletter form
+│   ├── ToolCard.js         # Reusable AI tool card
+│   └── CookieConsent.js    # GDPR cookie consent banner
 ├── data/
-│   └── aiTools.js        # All 75+ AI tools + blog posts
+│   └── aiTools.js
 ├── pages/
-│   ├── _app.js           # App entry point
-│   ├── index.js          # Homepage
-│   ├── ai-tools.js       # AI Tools directory
-│   ├── free-tools.js     # Free browser utilities
-│   ├── blog.js           # Blog listing
-│   └── tutorials.js      # Tutorial guides
-├── styles/
-│   └── globals.css       # Global styles + Tailwind
-├── public/               # Static assets
-├── next.config.js
-├── tailwind.config.js
-├── postcss.config.js
-└── package.json
+│   ├── api/
+│   │   ├── contact.js      # Contact form API (rate-limited, validated)
+│   │   └── subscribe.js    # Newsletter subscription API (rate-limited)
+│   └── ... (all pages)
+├── .env.local.example      # Copy to .env.local and fill in values
+└── next.config.js          # Security headers + CSP
 ```
 
 ---
 
-## ⚙️ Installation & Setup
-
-### Prerequisites
-- Node.js 18+ installed
-- npm or yarn
-
-### 1. Install dependencies
+## ⚙️ Setup
 
 ```bash
 npm install
-```
-
-### 2. Run development server
-
-```bash
+cp .env.local.example .env.local
+# Edit .env.local with your Formspree endpoints and GA ID
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+### Environment Variables
 
-### 3. Build for production
+| Variable | Description |
+|----------|-------------|
+| `FORMSPREE_ENDPOINT` | Formspree URL for the contact form |
+| `FORMSPREE_NEWSLETTER_ENDPOINT` | Formspree URL for newsletter |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Google Analytics ID (optional) |
 
-```bash
-npm run build
-npm start
-```
+Get Formspree endpoints at [formspree.io](https://formspree.io) — free tier covers 50 submissions/month.
 
 ---
 
 ## 🌐 Deploy to Vercel
 
-### Option 1: Vercel CLI (Fastest)
-
-```bash
-# Install Vercel CLI
-npm install -g vercel
-
-# Deploy
-vercel
-
-# Deploy to production
-vercel --prod
-```
-
-### Option 2: GitHub + Vercel Dashboard
-
-1. Push this project to a GitHub repository
-2. Go to [vercel.com](https://vercel.com) and sign in
-3. Click **"New Project"** → Import your GitHub repo
-4. Vercel auto-detects Next.js — click **"Deploy"**
-5. Your site is live in ~60 seconds! 🎉
-
-### Environment Variables (Optional)
-No environment variables required for the base setup.
+1. Push to GitHub
+2. Import on [vercel.com](https://vercel.com)
+3. Add env vars from `.env.local.example` in the Vercel dashboard
+4. Deploy
 
 ---
 
-## 🛠️ Customization
+## 🔒 Security Features
 
-### Add more AI tools
-Edit `data/aiTools.js` and add entries to the `aiTools` array:
-
-```js
-{ 
-  id: 76, 
-  name: "New AI Tool", 
-  category: "Chatbot", 
-  description: "Description here",
-  url: "https://example.com",
-  logo: "🤖",
-  color: "#4f46e5",
-  featured: false,
-  rating: 4.5,
-  users: "1M+",
-  free: true,
-  tags: ["chatbot", "ai"]
-}
-```
-
-### Change color scheme
-Edit `tailwind.config.js` — update the `brand` color palette.
+| Feature | Status |
+|---------|--------|
+| Content Security Policy (CSP) | ✅ `next.config.js` |
+| Contact form — real API backend | ✅ `pages/api/contact.js` |
+| Rate limiting (5 submissions/hr/IP) | ✅ |
+| Input sanitization & validation | ✅ |
+| Newsletter rate limiting | ✅ |
+| External links `rel="noopener noreferrer"` | ✅ |
+| Personal email hidden from public UI | ✅ |
+| GDPR cookie consent banner | ✅ `CookieConsent.js` |
+| Analytics consent-gated | ✅ |
 
 ---
 
-## 📄 Pages
-
-| Route | Description |
-|-------|-------------|
-| `/` | Homepage with hero, featured tools, free tools, blog |
-| `/ai-tools` | Full AI tools directory with search & filter |
-| `/free-tools` | 6 working browser utilities |
-| `/blog` | Blog articles |
-| `/tutorials` | Step-by-step AI guides |
+Built by Rayyan Khan
 
 ---
 
