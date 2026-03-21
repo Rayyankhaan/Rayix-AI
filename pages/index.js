@@ -117,7 +117,7 @@ export default function HomePage() {
 
   return (
     <Layout
-      title="Rayix AI — 1000+ AI Tools Directory"
+      title="Rayix AI — 1000+ Top AI Tools Directory"
       description="Discover and compare 1000+ AI tools for developers, students, and businesses. Best AI tools for image generation, coding, writing, video, audio — all free. No signup needed."
       keywords="AI tools directory, best AI tools 2026, free AI tools, AI tools for developers, AI tools for students, AI image generators, AI coding tools, ChatGPT alternatives, Midjourney alternatives, AI writing tools, artificial intelligence tools list"
     >
