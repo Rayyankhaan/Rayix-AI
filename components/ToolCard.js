@@ -18,9 +18,9 @@ export default function ToolCard({ tool }) {
       <p style={{ color:'#8b7fa8', fontSize:13, lineHeight:1.6, margin:0 }}>{tool.description}</p>
 
       <div style={{ display:'flex', alignItems:'center', gap:10, fontSize:11, color:'#8b7fa8' }}>
-        <span>⭐ {tool.rating}</span>
+        <span>{tool.rating == null ? 'Not rated' : <>⭐ {tool.rating}</>}</span>
         <span style={{ opacity:.3 }}>·</span>
-        <span>{tool.users}</span>
+        <span>{tool.users ?? 'Usage not disclosed'}</span>
         <span style={{ opacity:.3 }}>·</span>
         <span style={{ color: tool.free ? '#10b981' : '#f97316', fontWeight:600 }}>{tool.free ? '✓ Free' : '💳 Paid'}</span>
       </div>

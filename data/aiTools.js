@@ -1277,6 +1277,8 @@ export const aiTools = [
   { id:1369, name:"Hedra", category:"Video Generation", description:"AI character video — animate any portrait with a voice to create talking character videos.", url:"https://hedra.com", logo:"🎭", color:"#6366f1", featured:false, rating:4.5, users:"500K+", free:true, tags:["character","portrait","voice","talking","animate"] },
   { id:1370, name:"Moonvalley", category:"Video Generation", description:"Cinematic text-to-video AI trained from scratch on licensed content — safe for commercial use.", url:"https://moonvalley.ai", logo:"🌙", color:"#1d4ed8", featured:false, rating:4.4, users:"500K+", free:true, tags:["cinematic","licensed","commercial","text-to-video","safe"] },
 
+  { id:1371, name:"agent-qa", category:"Developer Tools", description:"agent-qa by vostride tests web, Android and iOS apps in natural language. memidex persistent memory and validated self-improvement power CLI/MCP workflows with reviewable evidence. Free CLI; configured model providers may charge.", url:"https://vostride.com", logo:"🧪", color:"#196872", featured:false, rating:null, users:null, free:true, tags:["testing","memory","mcp","web","android","ios"] },
+
 ];
 
 export const categories = [
